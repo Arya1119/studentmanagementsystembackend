@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class StudentController {
 
     @Autowired
@@ -25,6 +26,11 @@ public class StudentController {
 
     // Mappings - URL endpoints
     // Get the list of all student
+    @GetMapping
+    public String getWelcome()
+    {
+        return "<center><h1> Welcome to the world of spring boot applications</h1></center>";
+    }
     @GetMapping("/listStudents")
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
